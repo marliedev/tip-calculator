@@ -23,11 +23,11 @@
     <div class="tip-calculator">
       <div class="tip-calculator__inputs">
         <form id="tip-calculator__form" novalidate>
-          <section class="tip-calculator__bill">
+          <section class="tip-calculator__bill" aria-labelledby="bill-label">
             <!-- Bill Input Field -->
             <label for="bill">
               <!-- label -->
-              <span class="tip-calculator__label">Bill</span>
+              <span class="tip-calculator__label" id="bill-heading">Bill</span>
               <!-- input -->
               <input class="tip-calculator__input--number" id="bill" type="number" name="bill" placeholder="0.00"
                 aria-label="Bill Amount" min="0" max="10000.00" step="0.01" required aria-required="true" />
@@ -40,7 +40,7 @@
               <span class="error" aria-live="polite"></span>
             </label>
           </section>
-          <section class="tip-calculator__tip">
+          <section class="tip-calculator__tip" aria-labelledby="radio-group-label">
             <!-- Tip Radio Group -->
             <fieldset class="tip__radio-group" role="radiogroup" aria-labelledby="radio-group-label">
               <legend class="tip-calculator__label" id="radio-group-label">Select Tip %</legend>
@@ -60,11 +60,11 @@
             <!-- error -->
             <span class="error" aria-live="polite"></span>
           </section>
-          <section class="tip-calculator__people">
+          <section class="tip-calculator__people" aria-labelledby="people-heading">
             <!-- Number of People Input Field -->
             <label for="people">
               <!-- label -->
-              <span class="tip-calculator__label">Number of People</span>
+              <span class="tip-calculator__label" id="people-heading">Number of People</span>
               <!-- input -->
               <input class="tip-calculator__input--number" id="people" type="number" name="people" placeholder="0"
                 aria-label="Number of People" min="1" max="10" step="1" required aria-required="true" />
