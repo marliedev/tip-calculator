@@ -152,13 +152,14 @@ inputCustomTip.addEventListener('focusout', (e) => {
 });
 radioGroupTipAmount.querySelectorAll('label').forEach((label) => {
 	// clear the custom tip value when clicking a radio button
-	label.addEventListener('click', () => {
+	label.addEventListener('click', (e) => {
+		handleInputChange(e);
 		inputCustomTip.value = '';
 	});
 });
 
 inputs.forEach((input) => {
-	input.addEventListener('change', handleInputChange);
+	input.addEventListener('input', handleInputChange);
 });
 
 resetButton.addEventListener('click', () => {
