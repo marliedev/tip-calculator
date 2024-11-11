@@ -85,18 +85,15 @@ const clearError = (type) => {
 
 const calculateTipAndPrice = () => {
 	// calculate tip amount and total price per person
-	var tipRate = radioGroupTipAmount.querySelector('input:checked')
+	let tipRate = radioGroupTipAmount.querySelector('input:checked')
 		? radioGroupTipAmount.querySelector('input:checked').value
 		: inputCustomTip.value;
+	let tipPerPerson =
+		(inputBill.value * (tipRate / 100)) / inputNoOfPeople.value;
+	let totalPerPerson = inputBill.value / inputNoOfPeople.value + tipPerPerson;
+	tipAmount.textContent = '$ ' + tipPerPerson.toFixed(2);
 
-	totalAmount.textContent =
-		'$ ' + (inputBill.value / inputNoOfPeople.value).toFixed(2);
-
-	tipAmount.textContent =
-		'$ ' +
-		((inputBill.value * (tipRate / 100)) / inputNoOfPeople.value).toFixed(
-			2
-		);
+	totalAmount.textContent = '$ ' + totalPerPerson.toFixed(2);
 };
 
 const dataIsValid = (key, value, validations) => {
