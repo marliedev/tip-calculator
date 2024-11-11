@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ----------------- */
+/* CUSTOM PROPERTIES */
+/* ----------------- */
+:root {
+    /* container max width */
+    --container-max-width: 930px;
+
+    /* primary color */
+    --clr-primary-cyan: 172, 67%, 45%;
+    --clr-primary-cyan-light: 172, 67%, 65%;
+
+    /* neutral colors */
+    --clr-neutral-100: 183, 100%, 15%;
+    --clr-neutral-200: 186, 14%, 43%;
+    --clr-neutral-300: 184, 14%, 56%;
+    --clr-neutral-400: 185, 41%, 84%;
+    --clr-neutral-500: 189, 41%, 94%;
+    --clr-neutral-600: 189, 41%, 97%;
+
+    --clr-white: 0, 0%, 100%;
+
+    /* spacings */
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-7: 28px;
+    --spacing-8: 32px;
+    --spacing-9: 36px;
+    --spacing-10: 40px;
+    --spacing-11: 44px;
+    --spacing-12: 48px;
+    --spacing-13: 52px;
+    --spacing-14: 56px;
+    --spacing-15: 60px;
+    --spacing-16: 64px;
+    --spacing-17: 68px;
+    --spacing-18: 72px;
+    --spacing-19: 76px;
+    --spacing-20: 80px;
+    --spacing-21: 84px;
+    --spacing-22: 88px;
+    --spacing-23: 92px;
+    --spacing-24: 96px;
+
+    /* border radius */
+    --border-radius-xs: 4px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
+    --border-radius-2xl: 24px;
+
+    /* font-sizes */
+    --fs-50: 12px;
+    --fs-100: 14px;
+    --fs-200: 16px;
+    --fs-300: 18px;
+    --fs-400: 20px;
+    --fs-500: 24px;
+    --fs-600: 28px;
+    --fs-700: 32px;
+    --fs-800: 36px;
+    --fs-900: 44px;
+    --fs-950: 64px;
+    /* font-family */
+    --ff-base: "Space Mono", monospace;
+}
+
+
+/* ------------------*/
+/*  SEMANTIC PRESETS */
+/* ----------------- */
+
+body {
+    background-color: hsl(var(--clr-neutral-400));
+    font-size: var(--fs-500);
+    font-family: var(--ff-base);
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+
+}
+
+h1 {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-12) var(--spacing-4);
+    font-size: var(--fs-600);
+    font-weight: 600;
+    line-height: 130%;
+    text-align: center;
+
+    span {
+        display: block;
+        color: hsl(var(--clr-neutral-100));
+    }
+}
+
+h2 {
+    font-size: var(--fs-400);
+    font-weight: 500;
+    line-height: 110%;
+    color: var(--clr-white);
+}
+
+p {
+    line-height: 150%;
+}
+
+section {
+    position: relative;
+}
+
+button {
+    background: hsl(var(--clr-primary-cyan));
+    display: block;
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-8);
+    border-radius: var(--border-radius-sm);
+    color: hsl(var(--clr-neutral-100));
+    font-weight: 900;
+    text-transform: uppercase;
+    border: none;
+    font-size: var(--fs-400);
+    transition: opacity .5s cubic-bezier(0.5, 0, .5, 1);
+    font-family: inherit;
+    text-align: center;
+    margin-top: auto;
+
+    &:hover {
+        cursor: pointer;
+        background: hsla(var(--clr-primary-cyan-light), 1);
+        border-bottom: 2px solid hsl(var(--clr-primary-blue));
+    }
+
+    &.active {
+        font-weight: 400;
+        opacity: 1;
+        color: hsla(var(--clr-white), 1);
+    }
+
+    &:focus-visible {
+        outline: 3px solid hsl(var(--clr-primary-cyan));
+        outline-offset: 4px;
+        background-position: 0 0;
+    }
+}
+
+label {
+    position: relative;
+
+    svg {
+        position: absolute;
+        bottom: 1.25rem;
+        left: 1rem;
+
+        path {
+            fill: hsl(var(--clr-neutral-300));
+        }
+    }
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+
+
+/* ------------------*/
+/*      HELPERS      */
+/* ----------------- */
+
+.visually-hidden {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+/* ------------------------- */
+/*      TIP CALCULATOR       */
+/* ------------------------- */
+.tip-calculator {
+    background: white;
+    display: flex;
+    width: 100%;
+    max-width: 60rem;
+    border-top-left-radius: var(--border-radius-2xl);
+    border-top-right-radius: var(--border-radius-2xl);
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding: var(--spacing-4);
+}
+
+#tip-calculator__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.tip-calculator__label {
+    display: block;
+    width: 100%;
+    grid-column: 1 / -1;
+    font-size: var(--fs-300);
+    font-weight: 600;
+    color: hsl(var(--clr-neutral-200));
+}
+
+.tip-calculator__input--number {
+    display: block;
+    border: 0;
+    outline: 0;
+    background: hsl(var(--clr-neutral-500));
+    border-radius: var(--border-radius-sm);
+    border: 2px solid hsla(var(--clr-primary-cyan), 0);
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    width: 100%;
+    font-size: var(--fs-500);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: hsl(var(--clr-neutral-100));
+    font-family: var(--ff-base);
+    text-align: right;
+
+    &:hover,
+    &:focus-visible {
+        border: 2px solid hsl(var(--clr-primary-cyan));
+
+        ~svg path {
+            fill: hsl(var(--clr-primary-cyan));
+        }
+    }
+
+    &.invalid,
+    &[aria-invalid="true"] {
+        border: 2px solid red;
+    }
+
+    &::placeholder,
+    &::-ms-input-placeholder {
+        color: hsl(var(--clr-neutral-400));
+        opacity: .5;
+    }
+}
+
+.tip__radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: var(--spacing-4);
+    margin-top: 0.5rem;
+}
+
+.label--radio {
+    display: inline-block;
+
+    padding: var(--spacing-3) var(--spacing-12);
+    border-radius: var(--border-radius-sm);
+    background-color: hsl(var(--clr-neutral-100));
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: hsl(var(--clr-primary-cyan-light));
+        color: hsl(var(--clr-neutral-100));
+    }
+
+    &:focus-visible {
+        outline: 3px solid hsl(var(--clr-primary-cyan));
+        outline-offset: 2px;
+        background-position: 0 0;
+    }
+}
+
+/* Style when the radio button is checked */
+input[type="radio"]:checked+.label--radio {
+    background-color: hsl(var(--clr-primary-cyan));
+    color: hsl(var(--clr-neutral-100));
+
+}
+
+.error {
+    color: red;
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    font-size: var(--fs-300);
+    line-height: 100%;
+}
+
+.tip-calculator__result {
+    display: flex;
+    flex-direction: column;
+    background: hsl(var(--clr-neutral-100));
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-12) var(--spacing-8) var(--spacing-8) var(--spacing-8);
+
+    .result__tip-amount,
+    .result__total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--spacing-8);
+
+        .tip-amount__label,
+        .total__label {
+            span:first-of-type {
+                color: white;
+                font-weight: 600;
+                font-size: var(--fs-200);
+                display: block;
+                line-height: 100%;
+            }
+
+            span:last-of-type {
+                color: hsl(var(--clr-neutral-300));
+                font-weight: 600;
+                font-size: var(--fs-200);
+                line-height: 100%;
+            }
+        }
+
+        .tip-amount__value,
+        .total__value {
+            color: hsl(var(--clr-primary-cyan));
+            font-weight: 600;
+            font-size: var(--fs-600);
+            line-height: 100%;
+        }
+
+    }
+}
+
+
+
+/* ----------------- */
+/* ATTRIBUTION */
+/* ----------------- */
+.attribution {
+    font-size: var(--fs-100);
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: hsl(var(--clr-neutral-300));
+
+    a {
+        color: hsl(var(--clr-neutral-100));
+        font-weight: 400;
+    }
+}
+
+/* ----------------- */
+/*  MEDIA QUERIES    */
+/* ----------------- */
+@media (width > 64rem) {
+    main {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .tip-calculator {
+        flex-direction: row;
+        border-radius: var(--border-radius-2xl);
+        padding: var(--spacing-8);
+        box-shadow: 0px 4px 24px hsla(var(--clr-neutral-100), .2);
+        padding: var(--spacing-12);
+    }
+
+    .tip-calculator__inputs,
+    .tip-calculator__result {
+        width: 50%;
+    }
+
+
+
+    .attribution {
+        position: absolute;
+        bottom: 1rem;
+    }
+}
